@@ -1,6 +1,6 @@
-/' Arquivo com diagrama de classe principal do projeto. 
-	Para visualizar o diagrama instale o plugin do eclipse, ver instrucões em: http://plantuml.com/eclipse '/
-
+/' Arquivo com diagrama de classe principal do projeto.
+Para visualizar o diagrama instale o plugin do eclipse, ver instrucões em: http://plantuml.com/eclipse '/
+   
 @startuml
 page 2x2
 skinparam defaultFontName Trebuchet MS
@@ -10,46 +10,28 @@ skinparam nodesep 10
 skinparam ranksep 10
 /'left to right direction'/
 
-/' Pacote com as delcarações de classes do plantuml (http://plantuml.com/class-diagram) 
-    class Pessoa {
-		- id: Long {id}
-		- nome: String[100]
-		- login: String[50]
-		- cpf: String[11]
-		- telefone: String[11]
-		- altura: Long
-		- peso: Long
-		- ativo: Boolean
-		- dataNasc: LocalDateTime
-		- dataInicio: LocalDateTime
-		- pessoaType: PessoaType
-		- descricao: String[1000]
-		-- tagged values --
-		<b>@table.name</b>: CR_PESSOA
-		<b>@cpf.label</b>: CPF
-		<b>@cpf.mask</b>: 000.000.000-00
-		<b>@telefone.mask</b>: (00) 00000-0000
-		<b>@dataNasc.label</b>: Nascimento
-		<b>@dataInicio.label</b>: Início de Exercício
-		<b>@descricao.label</b>: Descrição
-    }
-'/
-
 package "br.jus.tre_pa.app.scoop2019.domain" <<Frame>> {
 
-}
-
-/' Pacote com as declaraões dos tipos Enums do sistema 
-
-	enum PessoaType {
-		SERVIDOR
-		ESTAGIARIO
-	}	
-'/
-package "br.jus.tre_pa.app.scoop2019.domain.enums" <<Frame>>{
-
+  	class ZonaEleitoral {
+		- codObjeto: String[255] {id}
+        - numero: String[255]
+	}
+	
+		class Localidade {
+		- codObjeto: String[255] {id}
+        - nomLocalidade: String[255]
+	}
+        
+        class LocalVotacao {
+		- codObjeto: String[255] {id}
+        - numLocal: String[255]
+        - nomLocal: String[255]
+	}
 }
 
 /' Relacionamentos entre entidades '/
+
+ZonaEleitoral "1" <--> "0..*" LocalVotacao : zonaLV
+Localidade "1" <--> "0..*" LocalVotacao : localidadeLV
 
 @enduml
