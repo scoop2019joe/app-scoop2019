@@ -1,0 +1,18 @@
+package br.jus.tre_pa.app.scoop2019.security.permission;
+
+import org.keycloak.representations.idm.authorization.ResourcePermissionRepresentation;
+import org.springframework.stereotype.Component;
+
+import br.jus.tre_pa.jsecurity.AbstractPermissionConfiguration;
+
+@Component
+public class DefaultPermission extends AbstractPermissionConfiguration {
+
+	@Override
+	public void configure(ResourcePermissionRepresentation representation) {
+		representation.setName("DEFAULT_PERMISSION");
+		representation.addResource("DEFAULT_RESOURCE");
+		representation.addPolicy("USER_POLICY");
+	}
+
+}
