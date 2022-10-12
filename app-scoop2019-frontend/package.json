@@ -28,7 +28,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.8",
     "@fortawesome/free-solid-svg-icons": "^5.5.0",
     "@types/lodash": "^4.14.118",
-    "cldr": "^4.13.0",
+    "cldr": "^7.2.0",
     "cldr-data": "^34.0.0",
     "copyfiles": "^2.1.0",
     "core-js": "^2.5.4",
